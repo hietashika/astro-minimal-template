@@ -24,7 +24,7 @@ Astroをベースとしたコンポーネント指向の設計を採用してい
 
 ## フロントエンドのコーディング規約
 
-常に[Astroの公式ドキュメント](mdc:https:/docs.astro.build/en/getting-started)を参照し、ベストプラクティスな実装を行う。
+常に[Astroの公式ドキュメント](https://docs.astro.build/en/getting-started/)を参照し、ベストプラクティスな実装を行う。
 
 ## html
 
@@ -111,14 +111,14 @@ class名は誰が見てもわかりやすいように命名してください。
 
 ### カスケードレイヤー
 ITCSSの設計思想に基づいて、カスケードレイヤーを採用しています。 
-カスケードレイヤーの設定は、[global.scss](mdc:src/styles/global.scss)に記載しています。
+カスケードレイヤーの設定は、[global.scss](src/styles/global.scss)に記載しています。
 1. Settings - グローバル変数や設定（例：色、フォントサイズなど）
 2. Tools - ミックスインや関数（例：メディアクエリ、ユーティリティ関数など）
 3. Generic - リセットやノーマライズ（例：reset.css）
 4. Elements - HTML要素の基本的なスタイル（例：h1, p, aなど）
 5. Objects - レイアウトに関連するクラス（例：グリッドシステム、コンテナなど）
 
-より詳細なITCSSガイドラインは、[007_itcss_layers.md](mdc:rules/front-end/007_itcss_layers.md)を参照してください。
+より詳細なITCSSガイドラインは、[007_itcss_layers.md](rules/front-end/007_itcss_layers.md)を参照してください。
 
 ### reset.css
 Reset.cssはdestyle.cssを採用。
@@ -130,7 +130,7 @@ EveryLayoutや、CSS Gridを活用してください。
 
 ### レスポンシブタイポグラフィ
 
-このプロジェクトでは、レスポンシブなタイポグラフィを実装するために`clamp-size`ミックスインを使用します。 [_function.scss](mdc:src/styles/tools/_function.scss)
+このプロジェクトでは、レスポンシブなタイポグラフィを実装するために`clamp-size`ミックスインを使用します。 [_function.scss](src/styles/tools/_function.scss)
 
 
 
@@ -142,7 +142,7 @@ EveryLayoutや、CSS Gridを活用してください。
 
 ### Reference
 
-[Astro 公式ドキュメント](mdc:https:/astro.build/docs)
+[Astro 公式ドキュメント](https://astro.build/docs/)
 
 
 ## ITCSSレイヤー構成の詳細ガイド
