@@ -6,12 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignore": [
-      "**/*.astro",
-      "**/*.css",
-      "**/*.scss",
-      "**/*.html"
-    ]
+    "ignore": ["**/*.astro", "**/*.css", "**/*.scss", "**/*.html"]
   },
   "formatter": {
     "enabled": true,

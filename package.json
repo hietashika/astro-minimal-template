@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "npm run _lint-fix && npm _format-fix",
+    "check": "npm run _lint-fix && npm run _format-fix",
     "_lint": "biome check . && prettier --check \"**/*.astro\"",
     "_lint-fix": "biome check  --write . && prettier --write \"**/*.astro\"",
     "_format": "stylelint \"**/*.{astro,scss}\"",

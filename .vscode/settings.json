@@ -1,10 +1,6 @@
 {
   // stylelintの拡張機能の対象にするファイルの拡張子
-  "stylelint.validate": [
-    "css",
-    "scss",
-    "astro"
-  ],
+  "stylelint.validate": ["css", "scss", "astro"],
   // 保存時に自動で --fix するように
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "always",
@@ -45,10 +41,7 @@
     "ruby": false,
     "tsc": false
   },
-  "taskExplorer.exclude": [
-    "**/node_modules/**",
-    "**/dist/**"
-  ],
+  "taskExplorer.exclude": ["**/node_modules/**", "**/dist/**"],
   "taskExplorer.showLastTasks": true,
   // Markdown Preview設定
   "markdown-preview-enhanced.previewTheme": "github-light.css",
@@ -97,11 +90,7 @@
     "typescriptreact",
     "source.css.styled"
   ],
-  "cssVariables.lookupFiles": [
-    "**/*.css",
-    "**/*.scss",
-    "**/*.astro"
-  ],
+  "cssVariables.lookupFiles": ["**/*.css", "**/*.scss", "**/*.astro"],
   "cssVariables.trace.server": "messages",
   "taskExplorer.disableAnimatedIcons": false,
   "eslint.lintTask.enable": true,
