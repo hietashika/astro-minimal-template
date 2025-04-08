@@ -1,0 +1,27 @@
+// ITCSSに従った命名規則
+// https://itcss.io/
+
+// 1. Settings
+// 2. Tools
+// 3. Generic
+// 4. Base
+// 5. Objects
+// 6. Components
+// 7. Utilities
+
+@layer settings, tools, generic, base, objects, components, utilities;
+
+// 1. Settings
+
+// 2. Tools
+
+// 3. Generic
+@import "./generic/_reset.css" layer(generic);
+
+// 4. Base
+
+// 5. Objects
+
+// 6. Components
+
+// 7. Utilities
