@@ -1,0 +1,3 @@
+[chore] 🔧 コード品質向上のための開発環境設定ファイルを追加する
+- Prettier、Stylelint、EditorConfigなどの設定ファイルを追加し、コードの一貫性とフォーマットの自動化を実現
+- Git commit前に自動チェックを行うlefthookの設定と、CSSリセット用のdestyle.cssを導入

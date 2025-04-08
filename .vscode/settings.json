@@ -3,22 +3,21 @@
   "stylelint.validate": [
     "css",
     "scss",
-    "html",
     "astro"
   ],
   // 保存時に自動で --fix するように
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "always",
-    "source.organizeImports.biome": "always",
-    "quickfix.biome": "always"
+    "source.organizeImports.biome": "always"
   },
   // 自動で保存しないように
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   // フォーマッターのデフォルトのフォーマッターをbiomeにする
   "editor.defaultFormatter": "biomejs.biome",
   // CSSとSCSSファイルの設定
   "[css][scss]": {
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": "always"
     }
@@ -27,12 +26,8 @@
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
     "editor.formatOnSave": true,
-    "editor.tabSize": 2,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": "always"
-    }
+    "editor.tabSize": 2
   },
-  
   // Task Explorer設定
   "taskExplorer.enabledTasks": {
     "npm": true,
@@ -50,7 +45,10 @@
     "ruby": false,
     "tsc": false
   },
-  "taskExplorer.exclude": ["**/node_modules/**", "**/dist/**"],
+  "taskExplorer.exclude": [
+    "**/node_modules/**",
+    "**/dist/**"
+  ],
   "taskExplorer.showLastTasks": true,
   // Markdown Preview設定
   "markdown-preview-enhanced.previewTheme": "github-light.css",
@@ -62,7 +60,7 @@
   "markdown-preview-enhanced.frontMatterRenderingOption": "table",
   "markdown-preview-enhanced.usePandocParser": false,
   // Markdownファイルの設定
-  "[markdown]": {
+  "[markdown][mdc]": {
     "editor.wordWrap": "on",
     "editor.quickSuggestions": {
       "comments": "on",

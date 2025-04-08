@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    stylelint:
+      root: 'src/'
+      glob: '**/*.{astro,scss}'
+      run: npx stylelint --fix {staged_files}
+      stage_fixed: true
+

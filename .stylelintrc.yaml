@@ -1,0 +1,70 @@
+# StyleLintの設定ファイル
+# 複数のスタイルシート形式に対応し、コードの品質を維持するための設定です
+
+# 基本設定の継承
+extends:
+  - stylelint-config-standard-scss
+  - stylelint-config-html
+
+# プラグイン設定
+plugins:
+  - stylelint-order
+
+# ルール設定
+rules:
+  # CSSの詳細度ルール
+  no-important: true
+  selector-max-id: 0
+  selector-max-type: 0
+
+  # CSSの書式ルール
+  string-quotes: "double"
+  order/properties-alphabetical-order: true
+  indentation: 2
+  declaration-block-trailing-semicolon: always
+  selector-list-comma-space-after: always
+  declaration-colon-space-after: always
+  number-leading-zero: never
+  length-zero-no-unit: true
+
+  # SCSSの設定
+  scss/load-no-partial-leading-underscore: null
+
+  # BEM命名規則（ハイフン区切り）
+  selector-class-pattern: ^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$
+
+  # コメントを推奨
+  comment-no-empty: true
+
+  # Astroの疑似クラス :global は指摘させない
+  selector-pseudo-class-no-unknown:
+    - true
+    - ignorePseudoClasses:
+        - global
+
+  # 擬似要素の表記統一（`::`）
+  selector-pseudo-element-colon-notation: double
+
+  # <>で囲まれた要素は指摘させない
+  scss/operator-no-unspaced: null
+
+  # 演算子の後に改行を許可する
+  scss/operator-no-newline-after: null
+
+  # 宣言前の空行
+  declaration-empty-line-before:
+    - always
+    - except:
+      - after-comment
+      - after-declaration
+      - first-nested
+    - ignore:
+      - inside-single-line-block
+
+# オーバーライド設定
+overrides:
+  # *.astroファイルのカスタムプロパティは指摘させない
+  - files:
+      - "*.astro"
+    rules:
+      custom-property-pattern: null

@@ -24,7 +24,7 @@ Astroをベースとしたコンポーネント指向の設計を採用してい
 
 ## フロントエンドのコーディング規約
 
-常に[Astroの公式ドキュメント](https://docs.astro.build/en/getting-started/)を参照し、ベストプラクティスな実装を行う。
+常に[Astroの公式ドキュメント](mdc:https:/docs.astro.build/en/getting-started)を参照し、ベストプラクティスな実装を行う。
 
 ## html
 
@@ -43,252 +43,82 @@ Astroをベースとしたコンポーネント指向の設計を採用してい
 メタ言語には、効率的にcssを書くためscssを採用しています。
 
 ### CSS設計
-MindBEMdingの考え方を採用しています。
-コードの見通しを良くし、開発や保守を容易にするためです。
+CSS Architectureの考え方を採用しています。
+- 予測しやすい
+- 保守しやすい
+- 拡張しやすい
+- 再利用性が高い
 
-### BEM命名規則
+上記を踏まえて、実装を行ってください。
 
-BEMは「Block, Element, Modifier」の略で、CSSクラス名を構造化し、コンポーネント間の関係を明確にします。
+### CSSの詳細度
+破綻をしないCSSを書くために、CSSの詳細度を意識してください。
 
-基本的な命名パターン:
-```
-.blockName__elementName--modifierName
-```
+- !importantを使わない
+- style属性を使わない
+- idにスタイルをつけない
+- 要素セレクタにスタイルをつけない
 
-#### BEMの詳細
+### CSSの書式ルール
+CSSの書き方に統一性を持たせてください。
 
-##### Block（ブロック）
+- 引用符: ダブルクォーテーション
+- プロパティの並べ方: アルファベット順
+- インデントの開け方: 2spaces
+- 宣言の終止符は必ずつける
+- セレクタ名の後には必ずスペースを1つつける
+- プロパティの後ろにはスペースを1つ入れる
+- 値が1以下の少数は0を省略する`0.5`→`.5`
+- 値が0の場合は単位を省略する`0`
+- 色はoklchで指定する
+- なるべくコメントを残す
 
-**定義**: 独立した意味を持つコンポーネント。再利用可能な独立したコンポーネントです。
+基本的にGoogle HTML/CSS Style Guideを参考にしています。
 
-**命名規則**:
-- キャメルケースを使用: `.blockName`
-- 単語が1つの場合は小文字: `.nav`
-- 複数の単語の場合はキャメルケース: `.mainMenu`
+PrettierとStylelintを使って、CSSの書式を統一しています。
 
-**例**:
-- `.button`
-- `.header`
-- `.cardList`
-- `.pageSection`
+### SCSSの利用について
+SCSSを活用して、変数を定義しています。
 
-##### Element（要素）
+変数で定義するもの
+- 配色
+- フォントサイズ、フォントファミリー
+- 絶対値の余白
+- アニメーション
+- コンテナの最大幅
+- 各パーツのデフォルトのサイズ
 
-**定義**: ブロックを構成する部品。ブロックから切り離して使用できません。
 
-**命名規則**:
-- ブロック名の後に二重アンダースコア(`__`)を付け、キャメルケースで要素名を続ける
-- 複数単語の場合はキャメルケース: `.blockName__elementName`
+### 命名規則
 
-**例**:
-- `.button__icon`
-- `.header__logo`
-- `.cardList__item`
-- `.pageSection__title`
+class名は誰が見てもわかりやすいように命名してください。
 
-##### Modifier（修飾子）
-
-**定義**: ブロックまたは要素の見た目や状態を変更するフラグ。
-
-**命名規則**:
-- ブロックまたは要素の後に二重ハイフン(`--`)を付け、キャメルケースで修飾子名を続ける
-- 複数単語の場合はキャメルケース: `.blockName--modifierName` または `.blockName__elementName--modifierName`
-
-**例**:
-- `.button--primary`
-- `.button--large`
-- `.header__logo--inverse`
-- `.cardList__item--featured`
-
-#### BEM実装例
-
-##### HTML
-
-```html
-<button class="button button--primary button--large">
-  <span class="button__icon">
-    <svg>...</svg>
-  </span>
-  <span class="button__text">送信</span>
-</button>
-```
-
-##### SCSS
-
-```scss
-.button {
-  // ベーススタイル
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-xs) var(--space-m);
-  border-radius: var(--radius-m);
-  
-  // 修飾子: primary
-  &--primary {
-    background-color: var(--color-primary);
-    color: var(--color-on-primary);
-  }
-  
-  // 修飾子: large
-  &--large {
-    padding: var(--space-s) var(--space-l);
-    font-size: var(--font-size-l);
-  }
-  
-  // 要素: icon
-  &__icon {
-    margin-right: var(--space-xs);
-    width: 1em;
-    height: 1em;
-  }
-  
-  // 要素: text
-  &__text {
-    font-weight: var(--font-weight-medium);
-  }
-}
-```
-
-#### Astroコンポーネントでの実装例
-
-```astro
----
-// Button.astro
-interface Props {
-  variant?: 'primary' | 'secondary' | 'tertiary';
-  size?: 'small' | 'medium' | 'large';
-  class?: string;
-}
-
-const { 
-  variant = 'primary', 
-  size = 'medium',
-  class: className = '',
-} = Astro.props;
-
-// BEM記法に基づいたクラス名生成
-const baseClass = 'button';
-const variantClass = `${baseClass}--${variant}`;
-const sizeClass = `${baseClass}--${size}`;
----
-
-<button class:list={[baseClass, variantClass, sizeClass, className]}>
-  {Astro.slots.has('icon') && (
-    <span class={`${baseClass}__icon`}>
-      <slot name="icon" />
-    </span>
-  )}
-  <span class={`${baseClass}__text`}>
-    <slot />
-  </span>
-</button>
-
-<style lang="scss">
-  .button {
-    // ベーススタイル
-    
-    // 修飾子: バリアント
-    &--primary {
-      // プライマリスタイル
-    }
-    
-    &--secondary {
-      // セカンダリスタイル
-    }
-    
-    // 修飾子: サイズ
-    &--small {
-      // スモールサイズスタイル
-    }
-    
-    &--medium {
-      // ミディアムサイズスタイル
-    }
-    
-    // 要素
-    &__icon {
-      // アイコンスタイル
-    }
-    
-    &__text {
-      // テキストスタイル
-    }
-  }
-</style>
-```
-
-#### BEMの使用ガイドライン
-
-1. **クラス名の一貫性**:
-   - 同じブロックに対しては常に同じ命名パターンを使用する
-   - コンポーネント間での命名パターンの共通性を保つ
-
-2. **ネストを深くしすぎない**:
-   - 要素のネストは1レベルに留める（`block__element`まで）
-   - 深いネストが必要な場合は新しいブロックを作成する
-
-   ```html
-   <!-- 良い例 -->
-   <div class="cardList">
-     <div class="cardList__item">
-       <div class="card">
-         <div class="card__header">...</div>
-       </div>
-     </div>
-   </div>
-   
-   <!-- 避けるべき例 -->
-   <div class="cardList">
-     <div class="cardList__item">
-       <div class="cardList__item__header">...</div>
-     </div>
-   </div>
-   ```
-
-3. **修飾子の使用法**:
-   - 修飾子単体では使用しない（常にベースクラスと一緒に使用）
-   - 状態を表す修飾子は`--isActive`のように`is`プレフィックスを使うことも可能
-
-4. **プレフィックスの活用**:
-   - コンポーネントの役割を明確にするためにプレフィックスを使用する（オプション）
-     - `c-`: コンポーネント（例: `c-button`）
-     - `l-`: レイアウト（例: `l-grid`）
-     - `u-`: ユーティリティ（例: `u-hidden`）
-     - `js-`: JavaScriptフック（例: `js-toggle`）
-
-5. **JavaScript連携**:
-   - JavaScriptのためのフックとスタイリングを分離する
-   - スタイリング用のクラスとJavaScript操作用のクラスを別々に定義する
-
-   ```html
-   <!-- 良い例 -->
-   <button class="button button--primary js-submit-form">送信</button>
-   ```
+- 誰が見ても意味の分かるclass名をつける
+- 統一感のある命名をする
+- 省略せずに書く
+- ハイフン区切りで命名する `main-visual`
+- デザインの変更に強いclass名を付ける NG`details-block-left` OK`details-block__image`
 
 #### その他の注意点
 
-1. **クラス名の長さ**:
-   - あまりに長いクラス名は避ける
-   - 意味が明確である限り、略語を使用してもよい
-
-2. **再利用性**:
+1. **再利用性**:
    - ブロックは独立して再利用できるようにする
    - 特定のコンテキストに依存するスタイルは避ける
 
-3. **グローバルなリセットとの組み合わせ**:
+2. **グローバルなリセットとの組み合わせ**:
    - リセットCSSと組み合わせて使用する
    - 要素セレクタの直接スタイリングは避け、クラスベースのスタイリングを優先する
 
 ### カスケードレイヤー
 ITCSSの設計思想に基づいて、カスケードレイヤーを採用しています。 
-カスケードレイヤーの設定は、[global.scss](src/styles/global.scss)に記載しています。
+カスケードレイヤーの設定は、[global.scss](mdc:src/styles/global.scss)に記載しています。
 1. Settings - グローバル変数や設定（例：色、フォントサイズなど）
 2. Tools - ミックスインや関数（例：メディアクエリ、ユーティリティ関数など）
 3. Generic - リセットやノーマライズ（例：reset.css）
 4. Elements - HTML要素の基本的なスタイル（例：h1, p, aなど）
 5. Objects - レイアウトに関連するクラス（例：グリッドシステム、コンテナなど）
 
-より詳細なITCSSガイドラインは、[007_itcss_layers.md](rules/front-end/007_itcss_layers.md)を参照してください。
+より詳細なITCSSガイドラインは、[007_itcss_layers.md](mdc:rules/front-end/007_itcss_layers.md)を参照してください。
 
 ### reset.css
 Reset.cssはdestyle.cssを採用。
@@ -300,7 +130,7 @@ EveryLayoutや、CSS Gridを活用してください。
 
 ### レスポンシブタイポグラフィ
 
-このプロジェクトでは、レスポンシブなタイポグラフィを実装するために`clamp-size`ミックスインを使用します。 [_function.scss](src/styles/tools/_function.scss)
+このプロジェクトでは、レスポンシブなタイポグラフィを実装するために`clamp-size`ミックスインを使用します。 [_function.scss](mdc:src/styles/tools/_function.scss)
 
 
 
@@ -312,7 +142,7 @@ EveryLayoutや、CSS Gridを活用してください。
 
 ### Reference
 
-[Astro 公式ドキュメント](https://astro.build/docs/)
+[Astro 公式ドキュメント](mdc:https:/astro.build/docs)
 
 
 ## ITCSSレイヤー構成の詳細ガイド
@@ -330,15 +160,6 @@ ITCSSは「Inverted Triangle CSS」の略で、CSSを詳細度に基づいて階
 
 **含まれるべきファイル**:
 - `_variables.scss` - カラー、タイポグラフィ、スペーシング、ブレイクポイントなどの変数
-- `_config.scss` - プロジェクト固有の設定（必要に応じて）
-
-**使用例**:
-```scss
-// _variables.scss
-$color-primary: #3b82f6;
-$font-family-base: 'Noto Sans JP', sans-serif;
-$space-unit: 0.25rem;
-```
 
 ### 2. Tools - ツールレイヤー
 **役割**: ミックスインや関数を定義します。
@@ -362,8 +183,6 @@ $space-unit: 0.25rem;
 
 **含まれるべきファイル**:
 - `_reset.css` - destyle.cssベースのリセットスタイル
-- `_normalize.scss` - ブラウザ間の差異を正規化するスタイル（必要に応じて）
-- `_box-sizing.scss` - box-sizingの定義（必要に応じて）
 
 ### 4. Elements - 要素レイヤー
 **役割**: HTML要素自体のスタイルを定義します。
@@ -371,9 +190,6 @@ $space-unit: 0.25rem;
 
 **含まれるべきファイル**:
 - `_base.scss` - 基本的なHTML要素のスタイル
-- `_typography.scss` - タイポグラフィ関連のスタイル（必要に応じて）
-- `_links.scss` - リンク要素のスタイル（必要に応じて）
-- `_forms.scss` - フォーム要素のスタイル（必要に応じて）
 
 **使用例**:
 ```scss
@@ -389,21 +205,6 @@ html {
 **役割**: 装飾を持たない構造的なパターンを定義します。
 **特徴**: コンテナ、グリッド、レイアウトなどの見た目に依存しない構造的なスタイルです。
 
-**含まれるべきファイル**:
-- `_container.scss` - コンテナ関連のスタイル
-- `_grid.scss` - グリッドシステム
-- `_layout.scss` - レイアウトパターン
-
-**使用例**:
-```scss
-// _container.scss（未実装）
-.o-container {
-  width: 100%;
-  max-width: var(--container-max-width);
-  margin-inline: auto;
-  padding-inline: var(--space-m);
-}
-```
 
 ### 6. Components - コンポーネントレイヤー
 **役割**: 具体的なUIコンポーネントのスタイルを定義します。
