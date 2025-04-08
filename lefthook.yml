@@ -2,10 +2,9 @@ pre-commit:
   parallel: true
   commands:
     marge-md:
-      root: "rules/"
       glob: "**/*.{md}"
-      run: node "c:\Users\hase0\Develop\minimal-template\rules\index.cjs"
-      stage_fixed: true
+      run: node "c:/Users/hase0/Develop/minimal-template/rules/index.cjs"
+      stage_fixed: false
     stylelint:
       root: "src/"
       glob: "**/*.{astro,scss}"

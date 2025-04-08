@@ -13,6 +13,14 @@
     "lineEnding": "lf",
     "formatWithErrors": true
   },
+  "css": {
+    "linter": {
+      "enabled": false
+    },
+    "formatter": {
+      "enabled": false
+    }
+  },
   "javascript": {
     "globals": ["astro"],
     "parser": {
@@ -20,7 +28,7 @@
     },
     "formatter": {
       "quoteStyle": "double",
-      "trailingCommas": "all",
+      "trailingCommas": "none",
       "semicolons": "always"
     }
   },

@@ -50,11 +50,11 @@ rules:
   declaration-empty-line-before:
     - always
     - except:
-      - after-comment
-      - after-declaration
-      - first-nested
+        - after-comment
+        - after-declaration
+        - first-nested
     - ignore:
-      - inside-single-line-block
+        - inside-single-line-block
 
 # オーバーライド設定
 overrides:

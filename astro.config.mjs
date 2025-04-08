@@ -5,6 +5,6 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   integrations: [],
   experimental: {
-    svg: true,
-  },
+    svg: true
+  }
 });

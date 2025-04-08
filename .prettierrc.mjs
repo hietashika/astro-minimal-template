@@ -5,4 +5,12 @@ const require = createRequire(import.meta.url);
 export default {
   plugins: [require.resolve("prettier-plugin-astro")],
   htmlWhitespaceSensitivity: "ignore",
+  useTabs: false,
+  tabWidth: 2,
+  singleQuote: false,
+  trailingComma: "none",
+  semi: true,
+  printWidth: 80,
+  arrowParens: "always",
+  endOfLine: "lf"
 };

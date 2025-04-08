@@ -12,7 +12,7 @@ const CONSTANTS = {
   MDC_EXTENSION: ".mdc",
   OUTPUT_DIR: ".cursor/rules",
   HEADING1_PREFIX: "# ",
-  HEADING2_PREFIX: "## ",
+  HEADING2_PREFIX: "## "
 };
 
 /**
@@ -43,7 +43,7 @@ async function extractFrontMatter(filePath) {
   } catch (error) {
     console.error(
       `[エラー] フロントマターの抽出中にエラーが発生しました: ${filePath}`,
-      error,
+      error
     );
     return ""; // エラーが発生した場合は空文字を返す
   }
@@ -87,7 +87,7 @@ function findMarkdownFiles(dir, fileList = []) {
       } catch (fileError) {
         console.error(
           `[エラー] ファイル情報の取得中にエラーが発生しました: ${filePath}`,
-          fileError,
+          fileError
         );
         throw fileError;
       }
@@ -97,7 +97,7 @@ function findMarkdownFiles(dir, fileList = []) {
   } catch (dirError) {
     console.error(
       `[エラー] ディレクトリの読み取り中にエラーが発生しました: ${dir}`,
-      dirError,
+      dirError
     );
     throw dirError;
   }
@@ -117,7 +117,7 @@ function isTargetSubDirectory(dirPath) {
   } catch (statError) {
     console.error(
       `[エラー] ディレクトリ情報の取得中にエラーが発生しました: ${dirPath}`,
-      statError,
+      statError
     );
     return false;
   }
@@ -142,7 +142,7 @@ function getSubDirectories(dir) {
   } catch (error) {
     console.error(
       `[エラー] ディレクトリの読み取り中にエラーが発生しました: ${dir}`,
-      error,
+      error
     );
     throw error;
   }
@@ -160,7 +160,7 @@ function readMarkdownFile(filePath) {
   } catch (error) {
     console.error(
       `[エラー] ファイルの読み取り中にエラーが発生しました: ${filePath}`,
-      error,
+      error
     );
     throw error; // エラーが発生した時点で処理を終了するため、エラーをスローする
   }
@@ -211,7 +211,7 @@ function processHeadingsSpacing(lines, startIndex) {
 
   return {
     resultLines,
-    nextIndex: foundHeading2 ? nextLineIndex : startIndex + 1,
+    nextIndex: foundHeading2 ? nextLineIndex : startIndex + 1
   };
 }
 
@@ -233,7 +233,7 @@ function formatMdcContent(mdcContent) {
     if (line.trim().startsWith(CONSTANTS.HEADING1_PREFIX)) {
       const { resultLines: headingLines, nextIndex } = processHeadingsSpacing(
         lines,
-        i,
+        i
       );
       resultLines.push(...headingLines);
       i = nextIndex;
@@ -281,7 +281,7 @@ async function generateMdcFile(subDir, outputDir, markdownFiles) {
     // 入力ファイルが存在しない場合はスキップ
     if (markdownFiles.length === 0) {
       console.log(
-        `[情報] ${subDir}フォルダ内にMarkdownファイルが見つかりませんでした。`,
+        `[情報] ${subDir}フォルダ内にMarkdownファイルが見つかりませんでした。`
       );
       return;
     }
@@ -289,7 +289,7 @@ async function generateMdcFile(subDir, outputDir, markdownFiles) {
     // ファイルを自然順にソート
     markdownFiles.sort();
     console.log(
-      `[情報] ${subDir}フォルダで${markdownFiles.length}個のMarkdownファイルを処理します。`,
+      `[情報] ${subDir}フォルダで${markdownFiles.length}個のMarkdownファイルを処理します。`
     );
 
     // Markdownファイルを結合
@@ -315,7 +315,7 @@ async function generateMdcFile(subDir, outputDir, markdownFiles) {
   } catch (error) {
     console.error(
       `[エラー] MDCファイルの生成中にエラーが発生しました: ${subDir}`,
-      error,
+      error
     );
     throw error; // エラーが発生した場合は呼び出し元に伝播させる
   }
@@ -350,7 +350,7 @@ async function main() {
     }
 
     console.log(
-      `[情報] 処理対象のサブディレクトリ数: ${subDirectories.length}`,
+      `[情報] 処理対象のサブディレクトリ数: ${subDirectories.length}`
     );
 
     // 出力先のディレクトリが存在しない場合は作成
@@ -360,7 +360,7 @@ async function main() {
     for (let i = 0; i < subDirectories.length; i++) {
       const subDir = subDirectories[i];
       console.log(
-        `[処理] [${i + 1}/${subDirectories.length}] サブディレクトリ処理開始: ${subDir}`,
+        `[処理] [${i + 1}/${subDirectories.length}] サブディレクトリ処理開始: ${subDir}`
       );
 
       try {
@@ -371,7 +371,7 @@ async function main() {
       } catch (dirError) {
         console.error(
           `[エラー] ディレクトリ処理中にエラーが発生しました: ${subDir}`,
-          dirError,
+          dirError
         );
         // エラーが発生しても他のディレクトリの処理を継続
       }
@@ -381,7 +381,7 @@ async function main() {
   } catch (error) {
     console.error(
       "[致命的エラー] 処理中に予期しないエラーが発生しました:",
-      error.message,
+      error.message
     );
     process.exit(1);
   }
