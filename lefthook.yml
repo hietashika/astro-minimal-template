@@ -1,8 +1,18 @@
 pre-commit:
+  parallel: true
   commands:
     stylelint:
       root: 'src/'
       glob: '**/*.{astro,scss}'
       run: npx stylelint --fix {staged_files}
       stage_fixed: true
-
+    prettier:
+      root: 'src/'
+      glob: '**/*.{astro,scss}'
+      run: npx prettier --write {staged_files}
+      stage_fixed: true
+    biome:
+      root: 'src/'
+      glob: '**/*.{ts,js,jsx,tsx}'
+      run: npx biome check --write {staged_files}
+      stage_fixed: true
