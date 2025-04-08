@@ -12,5 +12,5 @@ export default {
   semi: true,
   printWidth: 80,
   arrowParens: "always",
-  endOfLine: "lf"
+  endOfLine: "crlf"
 };
