@@ -15,9 +15,11 @@
 // 2. Tools
 
 // 3. Generic
-@import "generic/_reset" layer(generic);
+@import "generic/_reset.css" layer(generic);
 
 // 4. Base
+@import "base/_base.scss" layer(base);
+@import "base/_clamp.scss" layer(base);
 
 // 5. Objects
 
