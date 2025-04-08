@@ -1,0 +1,33 @@
+// サイトのデフォルトを指定するため、stylelintのルールを無視する
+
+/* stylelint-disable selector-max-type */
+body {
+  font-family: "IBM Plex Sans JP", sans-serif;
+}
+
+h1 {
+  --clamp-min: 24;
+  --clamp-max: 32;
+}
+
+h2 {
+  --clamp-min: 20;
+  --clamp-max: 28;
+}
+
+h3 {
+  --clamp-min: 18;
+  --clamp-max: 24;
+}
+
+h4 {
+  --clamp-min: 16;
+  --clamp-max: 20;
+}
+
+p {
+  --clamp-min: 14;
+  --clamp-max: 16;
+}
+
+/* stylelint-enable selector-max-type */
