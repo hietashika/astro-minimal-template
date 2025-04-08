@@ -2,22 +2,21 @@ pre-commit:
   parallel: true
   commands:
     marge-md:
-      root: 'rules/'
-      glob: '**/*.{md}'
+      root: "rules/"
+      glob: "**/*.{md}"
       run: node "c:\Users\hase0\Develop\minimal-template\rules\index.cjs"
       stage_fixed: true
     stylelint:
-      root: 'src/'
-      glob: '**/*.{astro,scss}'
+      root: "src/"
+      glob: "**/*.{astro,scss}"
       run: npx stylelint --fix {staged_files}
       stage_fixed: true
     prettier:
-      root: 'src/'
-      glob: '**/*.{astro}'
+      root: "src/"
+      glob: "**/*.{astro}"
       run: npx prettier --write {staged_files}
       stage_fixed: true
     biome:
-      root: '/'
-      glob: '**/*.{ts,js,jsx,tsx}'
+      glob: "**/*.{astro,ts,js,jsx,tsx,json,jsonc}"
       run: npx biome check --write {staged_files}
       stage_fixed: true

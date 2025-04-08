@@ -5,20 +5,33 @@
     "clientKind": "git",
     "useIgnoreFile": true
   },
-  "files": {
-    "ignore": ["**/*.astro", "**/*.css", "**/*.scss", "**/*.html"]
-  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 80
+    "lineWidth": 80,
+    "lineEnding": "lf",
+    "formatWithErrors": true
   },
   "javascript": {
+    "globals": ["astro"],
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    },
     "formatter": {
       "quoteStyle": "double",
       "trailingCommas": "all",
       "semicolons": "always"
+    }
+  },
+  "json": {
+    "parser": {
+      "allowComments": true,
+      "allowTrailingCommas": true
+    },
+    "formatter": {
+      "enabled": true,
+      "trailingCommas": "none"
     }
   },
   "organizeImports": {

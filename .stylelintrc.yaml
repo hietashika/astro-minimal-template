@@ -5,6 +5,7 @@
 extends:
   - stylelint-config-standard-scss
   - stylelint-config-html
+  - stylelint-prettier/recommended
 
 # プラグイン設定
 plugins:
@@ -13,18 +14,12 @@ plugins:
 # ルール設定
 rules:
   # CSSの詳細度ルール
-  no-important: true
+  declaration-no-important: true
   selector-max-id: 0
   selector-max-type: 0
 
   # CSSの書式ルール
-  string-quotes: "double"
   order/properties-alphabetical-order: true
-  indentation: 2
-  declaration-block-trailing-semicolon: always
-  selector-list-comma-space-after: always
-  declaration-colon-space-after: always
-  number-leading-zero: never
   length-zero-no-unit: true
 
   # SCSSの設定
