@@ -8,8 +8,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "npm run _lint-fix && npm run _format-fix",
-    "_lint": "biome check . && prettier --check \"**/*.astro\"",
-    "_lint-fix": "biome check  --write . && prettier --write \"**/*.astro\"",
+    "_lint": "biome check . && prettier --check \"**/*.{astro,scss}\"",
+    "_lint-fix": "biome check  --write . && prettier --write \"**/*.{astro,scss}\"",
     "_format": "stylelint \"**/*.{astro,scss}\"",
     "_format-fix": "stylelint --fix \"**/*.{astro,scss}\""
   },
