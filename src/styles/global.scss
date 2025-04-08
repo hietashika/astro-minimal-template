@@ -1,6 +1,5 @@
 // ITCSSに従った命名規則
 // https://itcss.io/
-
 // 1. Settings
 // 2. Tools
 // 3. Generic
@@ -16,7 +15,7 @@
 // 2. Tools
 
 // 3. Generic
-@import "./generic/_reset.css" layer(generic);
+@import "generic/_reset" layer(generic);
 
 // 4. Base
 
