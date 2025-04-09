@@ -10,7 +10,7 @@ export default {
   singleQuote: false,
   trailingComma: "none",
   semi: true,
-  printWidth: 80,
+  printWidth: 120,
   arrowParens: "always",
   endOfLine: "crlf"
 };

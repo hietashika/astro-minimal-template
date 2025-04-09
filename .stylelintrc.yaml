@@ -27,6 +27,13 @@ rules:
   # BEM命名規則（ハイフン区切り）
   selector-class-pattern: ^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$
 
+  # カスタムプロパティの命名規則（先頭のアンダースコアは任意）
+  custom-property-pattern: ^(_)?[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$
+
+  # oklch関数での表記をシンプルに
+  lightness-notation: null
+  hue-degree-notation: null
+
   # コメントを推奨
   comment-no-empty: true
 
