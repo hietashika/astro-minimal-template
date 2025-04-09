@@ -11,6 +11,7 @@
 @layer settings, tools, generic, base, objects, components, utilities;
 
 // 1. Settings
+@import "settings/_variables.scss" layer(settings);
 
 // 2. Tools
 

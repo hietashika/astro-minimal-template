@@ -1,33 +1,40 @@
+@use "../settings/_variables" as *;
+
 // サイトのデフォルトを指定するため、stylelintのルールを無視する
 
 /* stylelint-disable selector-max-type */
+html,
 body {
-  font-family: "IBM Plex Sans JP", sans-serif;
+  font-family: var(--_font-family-base);
 }
 
-h1 {
-  --clamp-min: 24;
-  --clamp-max: 32;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p {
+  margin-block: var(--_leading-trim);
+  max-inline-size: var(--_max-inline-size);
 }
 
-h2 {
-  --clamp-min: 20;
-  --clamp-max: 28;
-}
-
-h3 {
-  --clamp-min: 18;
-  --clamp-max: 24;
-}
-
-h4 {
-  --clamp-min: 16;
-  --clamp-max: 20;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.5;
+  text-wrap: pretty;
+  word-break: auto-phrase;
 }
 
 p {
-  --clamp-min: 14;
-  --clamp-max: 16;
+  line-height: 1.7;
 }
 
 /* stylelint-enable selector-max-type */
