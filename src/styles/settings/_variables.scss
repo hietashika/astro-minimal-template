@@ -130,21 +130,32 @@
   --_max-inline-size-narrow: 40rem;
   --_max-inline-size-wide: 56rem;
 
-  // Theme
+  // Token
 
   // Color
   // Light
-  // Background
-  --background-color-base: var(--_color-gray0);
-  --background-color-primary: var(--_color-gray10);
-  --background-color-secondary: var(--_color-gray20);
-  --background-color-accent: var(--_color-primary60);
+  // Surface
+  --surface-primary: var(--_color-gray0);
+  --surface-secondary: var(--_color-gray5);
+  --surface-tertiary: var(--_color-gray10);
+  --surface-moderate: var(--_color-gray20);
+  --surface-bold: var(--_color-gray30);
+  --surface-strong: var(--_color-gray50);
+  --surface-contrast: var(--_color-primary60);
+  --surface-overlay: var(--_color-gray0);
+  --surface-light: var(--_color-gray0);
+  --surface-dark: var(--_color-gray100);
 
   // Text
-  --text-color-emphasis-high: var(--_color-gray100);
-  --text-color-emphasis-meddle: var(--_color-gray90);
-  --text-color-emphasis-low: var(--_color-gray80);
-  --text-color-emphasis-disabled: var(--_color-gray70);
-  --text-color-emphasis-primary: var(--_color-primary60);
-  --text-color-emphasis-accent: var(--_color-gray0);
+  --text-primary: var(--_color-gray100);
+  --text-secondary: var(--_color-gray90);
+  --text-tertiary: var(--_color-gray80);
+  --text-moderate: var(--_color-gray70);
+  --text-bold: var(--_color-gray50);
+  --text-strong: var(--_color-gray50);
+  --text-contrast: var(--_color-primary60);
+  --text-overlay: var(--_color-gray0);
+  --text-light: var(--_color-gray0);
+  --text-dark: var(--_color-gray100);
+  --text-accent: var(--_color-primary60);
 }
