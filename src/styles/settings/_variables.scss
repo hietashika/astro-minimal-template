@@ -77,24 +77,46 @@
   // Font
   --_font-family-base: "IBM Plex Sans JP", sans-serif;
 
+  // Base Font Size
+  --_font-size1: 12; // body, heading
+  --_font-size2: 14; // body, heading
+  --_font-size3: 16; // body, heading
+  --_font-size4: 20; // heading
+  --_font-size5: 24; // heading
+  --_font-size6: 28; // heading
+  --_font-size7: 32; // heading
+  --_font-size8: 40; // heading
+  --_font-size9: 48; // display
+  --_font-size10: 60; // display
+  --_font-size11: 78; // display
+
   // Font Size
-  --_font-size1: 12;
-  --_font-size2: 14;
-  --_font-size3: 16;
-  --_font-size4: 18;
-  --_font-size5: 20;
-  --_font-size6: 24;
-  --_font-size7: 30;
-  --_font-size8: 36;
-  --_font-size9: 48;
-  --_font-size10: 60;
-  --_font-size11: 72;
+
+  --_font-size-display78: var(--_font-size11);
+  --_font-size-display60: var(--_font-size10);
+  --_font-size-display48: var(--_font-size9);
+  --_font-size-heading40: var(--_font-size8);
+  --_font-size-heading32: var(--_font-size7);
+  --_font-size-heading28: var(--_font-size6);
+  --_font-size-heading24: var(--_font-size5);
+  --_font-size-heading20: var(--_font-size4);
+  --_font-size-heading16: var(--_font-size3);
+  --_font-size-heading12: var(--_font-size2);
+  --_font-size-body16: var(--_font-size3);
+  --_font-size-body14: var(--_font-size2);
+  --_font-size-body12: var(--_font-size1);
+  --_font-size-caption12: var(--_font-size1);
+  --_font-size-list14: var(--_font-size2);
+  --_font-size-anchor16: var(--_font-size3);
 
   // Line Height
+
   // 行間の調整
+
   --_leading-trim: calc((1em - 1lh) / 2);
 
   // Space
+
   --_base-space0: 0;
   --_base-space1: 4;
   --_base-space2: 8;
@@ -102,33 +124,47 @@
   --_base-space4: 16;
   --_base-space5: 20;
   --_base-space6: 24;
-  --_base-space7: 28;
-  --_base-space8: 32;
-  --_base-space9: 36;
-  --_base-space10: 40;
-  --_base-space11: 44;
-  --_base-space12: 48;
+  --_base-space7: 32;
+  --_base-space8: 40;
+  --_base-space9: 48;
+  --_base-space10: 56;
+  --_base-space11: 64;
+  --_base-space12: 72;
+  --_base-space13: 80;
 
-  // remにする
+  // rem
 
-  --_space0: calc(var(--_space0) / 16 * 1rem);
-  --_space1: calc(var(--_space1) / 16 * 1rem);
-  --_space2: calc(var(--_space2) / 16 * 1rem);
-  --_space3: calc(var(--_space3) / 16 * 1rem);
-  --_space4: calc(var(--_space4) / 16 * 1rem);
-  --_space5: calc(var(--_space5) / 16 * 1rem);
-  --_space6: calc(var(--_space6) / 16 * 1rem);
-  --_space7: calc(var(--_space7) / 16 * 1rem);
-  --_space8: calc(var(--_space8) / 16 * 1rem);
-  --_space9: calc(var(--_space9) / 16 * 1rem);
-  --_space10: calc(var(--_space10) / 16 * 1rem);
-  --_space11: calc(var(--_space11) / 16 * 1rem);
-  --_space12: calc(var(--_space12) / 16 * 1rem);
+  --_convert-rem: calc(16 * 1rem);
+
+  // rem に変換
+  --_space0: var(--_base-space0);
+  --_space4: calc(var(--_base-space1) / var(--_convert-rem));
+  --_space8: calc(var(--_base-space2) / var(--_convert-rem));
+  --_space12: calc(var(--_base-space3) / var(--_convert-rem));
+  --_space16: calc(var(--_base-space4) / var(--_convert-rem));
+  --_space20: calc(var(--_base-space5) / var(--_convert-rem));
+  --_space24: calc(var(--_base-space6) / var(--_convert-rem));
+  --_space32: calc(var(--_base-space7) / var(--_convert-rem));
+  --_space40: calc(var(--_base-space8) / var(--_convert-rem));
+  --_space48: calc(var(--_base-space9) / var(--_convert-rem));
+  --_space56: calc(var(--_base-space10) / var(--_convert-rem));
+  --_space64: calc(var(--_base-space11) / var(--_convert-rem));
+  --_space72: calc(var(--_base-space12) / var(--_convert-rem));
+  --_space80: calc(var(--_base-space13) / var(--_convert-rem));
+
+  // px
+  --_space1px: 1px;
 
   // max-inline-size
   --_max-inline-size: 48rem;
   --_max-inline-size-narrow: 40rem;
   --_max-inline-size-wide: 56rem;
+
+  // border-radius
+  --_border-radius-small: var(--_space8);
+  --_border-radius-medium: var(--_space16);
+  --_border-radius-large: var(--_space32);
+  --_border-radius-full: calc(infinity * 1px);
 
   // Token
 
@@ -147,15 +183,20 @@
   --surface-dark: var(--_color-gray100);
 
   // Text
-  --text-primary: var(--_color-gray100);
-  --text-secondary: var(--_color-gray90);
-  --text-tertiary: var(--_color-gray80);
-  --text-moderate: var(--_color-gray70);
-  --text-bold: var(--_color-gray50);
-  --text-strong: var(--_color-gray50);
-  --text-contrast: var(--_color-primary60);
-  --text-overlay: var(--_color-gray0);
+  --text-primary: var(--_color-gray80);
+  --text-secondary: var(--_color-gray60);
+  --text-tertiary: var(--_color-gray40);
+  --text-link: var(--_color-primary60);
   --text-light: var(--_color-gray0);
   --text-dark: var(--_color-gray100);
-  --text-accent: var(--_color-primary60);
+
+  // Icon
+  --icon-action: var(--_color-primary60);
+  --icon-primary: var(--_color-gray80);
+  --icon-secondary: var(--_color-gray30);
+  --icon-light: var(--_color-gray0);
+  --icon-dark: var(--_color-gray100);
+
+  // Border
+  --border-minimal: var(--_color-gray10);
 }
