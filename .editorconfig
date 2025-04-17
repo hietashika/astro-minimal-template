@@ -13,15 +13,3 @@ insert_final_newline = true
 
 [*.{md,markdown,mdc}]
 trim_trailing_whitespace = false
-
-[*.{js,ts,jsx,tsx}]
-indent_style = space
-indent_size = 2
-
-[*.{astro,html,css,scss}]
-indent_style = space
-indent_size = 2
-
-[*.{json,jsonc,yaml,yml}]
-indent_style = space
-indent_size = 2
