@@ -332,7 +332,7 @@ async function main() {
     const rootDir = path.resolve(__dirname, "..");
 
     // rulesディレクトリのパス
-    const rulesDir = path.join(rootDir, "rules");
+    const rulesDir = path.join(rootDir, "docs");
 
     // 出力先のディレクトリ
     const outputDir = path.join(rootDir, CONSTANTS.OUTPUT_DIR);
