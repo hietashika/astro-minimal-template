@@ -17,5 +17,5 @@ pre-commit:
       stage_fixed: true
     marge-md:
       glob: "**/*.{md,mdc}"
-      run: node "c:/Users/hase0/Develop/minimal-template/rules/index.cjs"
+      run: node "c:/Users/hase0/Develop/minimal-template/docs/index.cjs"
       stage_fixed: true
