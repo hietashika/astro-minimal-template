@@ -1,0 +1,4 @@
+[submodule "src/styles/every-layout"]
+	path = src/styles/every-layout
+	url = https://github.com/hietashika/every-layout.git
+	branch = main
