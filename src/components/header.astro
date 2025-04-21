@@ -1,0 +1,39 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className, ...rest }: Props = Astro.props;
+---
+
+<header class:list={["header", className]} {...rest}>
+  <nav class="center">
+    <div class="cluster -justify-between -align-center -s16">
+      <svg width="24" height="24" viewBox="0 0 100 100">
+        <path
+          d="M 50 0 L 100 100 L 0 100 Z"
+          fill="currentColor"
+          stroke="currentColor"
+        >
+        </path>
+      </svg>
+      <ul class="cluster -justify-start -align-center -s8 nav-list">
+        <li>link</li>
+        <li>link</li>
+        <li>link</li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header {
+    color: var(--text-light);
+    padding: var(--spacing-08);
+  }
+
+  .nav-list > * {
+    --clamp-min: var(--font-size-heading12);
+    --clamp-max: var(--font-size-heading12);
+  }
+</style>
