@@ -135,7 +135,7 @@
 
   // rem
 
-  --convert-rem: calc(16 * 1rem);
+  --convert-rem: 16 * 1rem;
 
   // rem に変換
   --space0: var(--base-space0);

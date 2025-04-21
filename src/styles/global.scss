@@ -6,24 +6,36 @@
 // 4. Base
 // 5. Objects
 // 6. Components
-// 7. Utilities
+// 7. Trumps
 
-@layer settings, tools, generic, base, objects, components, utilities;
+@layer settings, tools, generic, base, objects, components, trumps;
 
 // 1. Settings
-@import "settings/_variables.scss" layer(settings);
+@import "./1_settings/_variables.scss" layer(settings);
+@import "./every-layout/styles/1_settings/_variables.scss" layer(settings);
 
 // 2. Tools
+@import "./every-layout/styles/2_tools/_utilities.scss" layer(tools);
 
 // 3. Generic
-@import "generic/_reset.css" layer(generic);
+@import "./3_generic/_reset.css" layer(generic);
 
 // 4. Base
-@import "base/_base.scss" layer(base);
-@import "base/_clamp.scss" layer(base);
+@import "./4_base/_base.scss" layer(base);
+@import "./4_base/_clamp.scss" layer(base);
 
 // 5. Objects
+@import "./every-layout/styles/5_objects/_center.scss" layer(objects);
+@import "./every-layout/styles/5_objects/_cluster.scss" layer(objects);
+@import "./every-layout/styles/5_objects/_stack.scss" layer(objects);
+@import "./every-layout/styles/5_objects/_switcher.scss" layer(objects);
+@import "./every-layout/styles/5_objects/_grid.scss" layer(objects);
+@import "./every-layout/styles/5_objects/_sidebar.scss" layer(objects);
+@import "./every-layout/styles/5_objects/_icon.scss" layer(objects);
+@import "./every-layout/styles/5_objects/_cover.scss" layer(objects);
+@import "./every-layout/styles/5_objects/_flame.scss" layer(objects);
+@import "./every-layout/styles/5_objects/_imposter.scss" layer(objects);
 
 // 6. Components
 
-// 7. Utilities
+// 7. Trumps

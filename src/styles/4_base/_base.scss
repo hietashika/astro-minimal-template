@@ -1,0 +1,15 @@
+@use "../1_settings/_variables" as *;
+
+// サイトのデフォルトを指定するため、stylelintのルールを無視する
+
+/* stylelint-disable selector-max-type */
+html,
+body {
+  font-family: var(--font-family-base);
+}
+
+body {
+  min-block-size: 100dvh;
+}
+
+/* stylelint-enable selector-max-type */

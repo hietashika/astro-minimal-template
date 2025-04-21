@@ -12,13 +12,13 @@
   --clamp-y-axis-intersection: calc(
     var(--clamp-min) - (var(--clamp-slope) * var(--clamp-viewport-min))
   );
-  --clamp-preffered-value: calc(
+  --clamp-preferred-value: calc(
     var(--clamp-y-axis-intersection) * (1rem / var(--clamp-root-font-size)) +
       (var(--clamp-slope) * 100vi)
   );
   --clamp: clamp(
     calc(var(--clamp-min) * (1rem / var(--clamp-root-font-size))),
-    var(--clamp-preffered-value),
+    var(--clamp-preferred-value),
     calc(var(--clamp-max) * (1rem / var(--clamp-root-font-size)))
   );
 
