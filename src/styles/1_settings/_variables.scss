@@ -125,9 +125,9 @@
   --max-inline-size-wide: 56rem;
 
   // border-radius
-  --border-radius-small: var(--space8);
-  --border-radius-medium: var(--space16);
-  --border-radius-large: var(--space32);
+  --border-radius-small: var(--spacing-08);
+  --border-radius-medium: var(--spacing-16);
+  --border-radius-large: var(--spacing-32);
   --border-radius-full: calc(infinity * 1px);
 
   // Token
