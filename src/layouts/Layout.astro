@@ -14,14 +14,42 @@ const { pageTitle } = Astro.props;
     <Head pageTitle={pageTitle} />
   </head>
   <body class="body stack -s32">
-    <Header class="header" />
-    <main class="center">
-      <div class="content">
+    <Header />
+    <main class="center mb-auto">
+      <div class="content stack -s32">
         <slot />
       </div>
     </main>
     <footer class="footer">
-      <p class="copyright">© 2025 Hello World</p>
+      <div class="center" data-max-width="40rem">
+        <div class="switcher -sx16 -sy24" data-basis="20rem">
+          <nav class="stack -s16">
+            <span class="footer-title">Navigation</span>
+            <ul class="stack -s8">
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+            </ul>
+          </nav>
+          <div class="stack -s16">
+            <span class="footer-title">SNS</span>
+            <ul class="stack -s8">
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+            </ul>
+          </div>
+          <div class="stack -s16">
+            <span class="footer-title">SNS</span>
+            <ul class="stack -s8">
+              <li>link</li>
+              <li>link</li>
+              <li>link</li>
+            </ul>
+          </div>
+        </div>
+        <p class="copyright">© 2025 Hello World</p>
+      </div>
     </footer>
   </body>
 </html>
@@ -40,8 +68,11 @@ const { pageTitle } = Astro.props;
 
   .footer {
     background-color: var(--surface-contrast);
-    inset-block-start: 100%;
-    margin-inline: auto;
-    position: sticky;
+    color: var(--text-light);
+  }
+
+  .footer-title {
+    --clamp-min: var(--font-size-heading12);
+    --clamp-max: var(--font-size-heading16);
   }
 </style>
