@@ -6,26 +6,26 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <h1 class="style">Hello World</h1>
-  <p class="paragraph">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-  </p>
+  <div class="stack -s4">
+    <div class="stack-item">hoge</div>
+    <div class="stack-item">hoge</div>
+    <div class="stack-item">hoge</div>
+  </div>
+  <div class="switcher -s8" data-basis="20rem">
+    <div class="switcher-item">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+    </div>
+    <div class="switcher-item">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+    </div>
+    <div class="switcher-item">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+    </div>
+  </div>
 </Layout>
 
 <style>
-  .style {
-    --clamp-min: var(--font-size3);
-    --clamp-max: var(--font-size4);
-
-    background-color: var(--color-gray0);
-    color: var(--color-gray50);
-  }
-
-  .paragraph {
-    --clamp-min: var(--font-size3);
-    --clamp-max: var(--font-size4);
-
-    background-color: var(--test);
-    color: var(--color-primary10);
+  .stack-item {
+    background-color: var(--surface-light);
   }
 </style>

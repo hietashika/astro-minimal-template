@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.scss";
+import Header from "@/components/header.astro";
 import Head from "@/layouts/Head.astro";
 
 const { pageTitle } = Astro.props;
@@ -12,15 +13,35 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <Head pageTitle={pageTitle} />
   </head>
-  <body class="body">
-    <slot />
+  <body class="body stack -s32">
+    <Header class="header" />
+    <main class="center">
+      <div class="content">
+        <slot />
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="copyright">© 2025 Hello World</p>
+    </footer>
   </body>
 </html>
 
 <style>
   .body {
-    display: grid;
-    grid-template: "header" auto "main" 1fr "footer" auto / 100%;
-    min-block-size: 100dvh;
+    background-color: var(--surface-contrast);
+  }
+
+  .content {
+    background-color: var(--surface-light);
+    border-radius: var(--border-radius-small);
+    padding-block: var(--spacing-24);
+    padding-inline: var(--spacing-08);
+  }
+
+  .footer {
+    background-color: var(--surface-contrast);
+    inset-block-start: 100%;
+    margin-inline: auto;
+    position: sticky;
   }
 </style>

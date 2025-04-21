@@ -6,5 +6,8 @@ export default defineConfig({
   integrations: [],
   experimental: {
     svg: true
+  },
+  devToolbar: {
+    enabled: false
   }
 });
