@@ -116,43 +116,6 @@
 
   --leading-trim: calc((1em - 1lh) / 2);
 
-  // Space
-
-  --base-space0: 0;
-  --base-space1: 4;
-  --base-space2: 8;
-  --base-space3: 12;
-  --base-space4: 16;
-  --base-space5: 20;
-  --base-space6: 24;
-  --base-space7: 32;
-  --base-space8: 40;
-  --base-space9: 48;
-  --base-space10: 56;
-  --base-space11: 64;
-  --base-space12: 72;
-  --base-space13: 80;
-
-  // rem
-
-  --convert-rem: 16 * 1rem;
-
-  // rem に変換
-  --space0: var(--base-space0);
-  --space4: calc(var(--base-space1) / var(--convert-rem));
-  --space8: calc(var(--base-space2) / var(--convert-rem));
-  --space12: calc(var(--base-space3) / var(--convert-rem));
-  --space16: calc(var(--base-space4) / var(--convert-rem));
-  --space20: calc(var(--base-space5) / var(--convert-rem));
-  --space24: calc(var(--base-space6) / var(--convert-rem));
-  --space32: calc(var(--base-space7) / var(--convert-rem));
-  --space40: calc(var(--base-space8) / var(--convert-rem));
-  --space48: calc(var(--base-space9) / var(--convert-rem));
-  --space56: calc(var(--base-space10) / var(--convert-rem));
-  --space64: calc(var(--base-space11) / var(--convert-rem));
-  --space72: calc(var(--base-space12) / var(--convert-rem));
-  --space80: calc(var(--base-space13) / var(--convert-rem));
-
   // px
   --space1px: 1px;
 
